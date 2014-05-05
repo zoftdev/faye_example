@@ -1,0 +1,12 @@
+<script>
+  //faye
+  $(function() {
+    var faye = new Faye.Client('http://localhost:9292/faye');
+    console.log(faye);
+    faye.subscribe("/messages/score", function(data) {
+      // eval(data);
+      alert(data);
+    });
+  });
+</script>
+index.erb

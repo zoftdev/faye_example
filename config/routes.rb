@@ -1,4 +1,10 @@
 J3::Application.routes.draw do
+
+  match 'score' => 'score#index'
+  get 'score/broadcast/:data', to: 'score#broadcast'
+  root to:'score#index'
+  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
