@@ -5,13 +5,14 @@ how create this project from scrash
 2. add gem 'thin' , gem 'faye' to Gemfile
 3. bundle install
 4. new page score 
-4.1 rails g controller score
-4.2 new index.erb in app/view/score
-4.3 edit route.rb add match 'score' :to => 'score/index'
+4.1. rails g controller score
+4.2. new index.erb in app/view/score
+4.3. edit route.rb add match 'score' :to => 'score/index'
 5. add websocket library
 5.1 edit views/layouts/accplication.html.erb :
   <%= javascript_include_tag 'http://localhost:9292/faye/client.js',  "application"  %>
-6. create socket on any page
+6. create socket on any page , see view/score/index.erb for example
+7. send data to subcriber ,see score_controller.rb
 
 == Run start Faye:
 rackup faye.ru  -s thin -E production -p 9292
@@ -23,4 +24,3 @@ rails s
 1. goto http://localhost:3000/score
 2. run command: curl http://localhost:9292/faye -d 'message={"channel":"/messages/score", "data":"hello"}'
 3. run http://localhost:3000/score/broadcast/message to broadcast from server
- 
