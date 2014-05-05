@@ -4,15 +4,11 @@ how create this project from scrash
 1. rails _3.2.17_ new project_name
 2. add gem 'thin' , gem 'faye' to Gemfile
 3. bundle install
-4. new page score 
-  1. rails g controller score
-  2. new index.erb in app/view/score
-  3. edit route.rb add match 'score' :to => 'score/index'
-5. add websocket library
-5.1 edit views/layouts/accplication.html.erb :
+4. add websocket library
+  edit views/layouts/accplication.html.erb :
   <%= javascript_include_tag 'http://localhost:9292/faye/client.js',  "application"  %>
-6. create socket on any page , see view/score/index.erb for example
-7. send data to subcriber ,see score_controller.rb
+5. create socket on any page , see view/score/index.erb for example
+6. send data to subcriber ,see score_controller.rb
 
 == Run start Faye:
 rackup faye.ru  -s thin -E production -p 9292
